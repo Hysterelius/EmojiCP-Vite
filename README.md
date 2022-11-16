@@ -10,7 +10,7 @@ This program is a rewrite of the original [Emoji CP](https://github.com/Hysterel
 
 
 ## Usage:
-Got to [emoji-cp.hysterelius.com](emoji-cp.hysterelius.com), and have a play! 😁
+Go to [emoji-cp.hysterelius.com](emoji-cp.hysterelius.com) and have a play! 😁
 
 ## Improvements:
 Over the original original [Emoji CP](https://github.com/Hysterelius/EmojiCP), there are a number of improvements:
