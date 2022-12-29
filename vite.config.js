@@ -12,5 +12,13 @@ export default defineConfig({
     }),
 
     quasar()
-  ]
+  ],
+
+  server: {
+    headers: {
+      'Strict-Transport-Security': 'max-age=86400; includeSubDomains',
+      'X-Frame-Options': 'DENY',
+      'X-XSS-Protection': '1; mode=block'
+    }
+  }
 })
