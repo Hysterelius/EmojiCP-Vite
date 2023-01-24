@@ -27,7 +27,7 @@
 
           <q-icon name="colorize" class="cursor-pointer" size="20px">
           <q-popup-proxy transition-show="scale" transition-hide="scale">
-              <q-color :default-value=colour1 no-footer no-header @update:model-value ="val => changeColour1(val)" />
+              <q-color :default-value=colour1 @update:model-value ="val => changeColour1(val)" />
           </q-popup-proxy>
           </q-icon>
           <br>
@@ -43,7 +43,7 @@
           </q-badge>
           <q-icon name="colorize" class="cursor-pointer" size="20px">
           <q-popup-proxy transition-show="scale" transition-hide="scale">
-              <q-color :default-value=colour2 no-footer no-header @update:model-value ="val => changeColour2(val)" />
+              <q-color :default-value=colour2 @update:model-value ="val => changeColour2(val)" />
           </q-popup-proxy>
           </q-icon>
           <br>
@@ -159,7 +159,7 @@ export default {
       emojisOutput: "",
       colour1: "#858e96",
       colour2: "#60696b",
-      baseStr: "https://twemoji.maxcdn.com/v/latest/svg/"
+      baseStr: "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/"
     };
   },
 
