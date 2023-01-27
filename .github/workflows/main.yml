@@ -1,9 +1,9 @@
 # .github/workflow/main.yml
-on: 
+on:
   push:
     branches:
       - main
-name: Build a Zola website
+name: Build a EmojiCP
 jobs:
   build-bundle-deploy:
     runs-on: ubuntu-latest
