@@ -14,9 +14,12 @@ jobs:
         with:
           submodules: true
       # Build static pages w/ Zola
-      - name: Build 🏗️
+      - name: Setup Node ⚙️
         uses: actions/setup-node@v3
-      - run: npm run build --if-present
+      - name: Install dependencies 🧱
+        run: npm install
+      - name: Build 🏗️
+        run: npm run build --if-present
       - name: Deploy 🚀
         uses: cloudflare/pages-action@v1
         with:
