@@ -321,6 +321,9 @@ export default {
       if (!unicodeEmoji.includes("200d")) {
         unicodeEmoji = unicodeEmoji.replaceAll("-fe0f", "");
       }
+      if (unicodeEmoji.includes("20e3")) {
+        unicodeEmoji = unicodeEmoji.replaceAll("00", "");
+      }
       return this.baseStr + unicodeEmoji + ".svg";
     },
 
