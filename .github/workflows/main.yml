@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - main
-name: Build a EmojiCP
+name: Build EmojiCP
 jobs:
-  build-bundle-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       # Check-out repository under $GITHUB_WORKSPACE
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-      # Build static pages w/ Zola
+      # Build static pages w/ Vite
       - name: Setup Node ⚙️
         uses: actions/setup-node@v3
       - name: Install dependencies 🧱
