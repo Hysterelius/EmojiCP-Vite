@@ -89,8 +89,8 @@
         @change="changeSize()"
       />
 
-      <br>
-      <br>
+      <br />
+      <br />
 
       <q-btn-toggle
         v-model="emojiCurrentlySelected"
@@ -185,6 +185,16 @@
       </q-btn>
     </div>
   </div>
+
+  <footer>
+    <div class="footer">
+      Uses
+      <a href="https://twemoji.twitter.com/" target="_blank">Twitter Emoji</a> |
+      <a href="https://github.com/Hysterelius/EmojiCP-Vite" target="_blank"
+        >GitHub</a
+      >
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -529,7 +539,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 @font-face {
@@ -546,6 +555,14 @@ export default {
   margin: auto;
   text-align: center;
   padding: 0 10px;
+  padding-top: 60px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
 }
 
 .main {
@@ -572,5 +589,20 @@ export default {
 
 .btngroup .q-btn {
   padding: 0.5rem;
+}
+
+.footer {
+
+  text-align: center;
+  padding: 0 5rem;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: auto;
+  padding-bottom: 1em;
+  background-color: #CEE0DC;
 }
 </style>
