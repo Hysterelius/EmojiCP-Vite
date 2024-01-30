@@ -6,122 +6,68 @@
 
   <div class="main">
     <div>
-      <Picker
-        :data="emojiIndex"
-        emoji="point_up_2"
-        title="Pick your emoji…"
-        set="twitter"
-        @select="emojiPicked"
-      />
+      <Picker :data="emojiIndex" emoji="point_up_2" title="Pick your emoji…" set="twitter" @select="emojiPicked" />
     </div>
 
     <div style="display: flexbox">
       <label for="Colour1">Colour 1 for gradient: </label>
-      <q-badge
-        outline
-        :style="{
-          background: colour1 + '!important',
-          color: invertHex(colour1) + '!important',
-          'font-family': 'monospace',
-          'font-this.canvasSize': '20px',
-        }"
-        class="q-mb-sm"
-        q
-      >
+      <q-badge outline :style="{
+        background: colour1 + '!important',
+        color: invertHex(colour1) + '!important',
+        'font-family': 'monospace',
+        'font-this.canvasSize': '20px',
+      }" class="q-mb-sm" q>
         {{ colour1 }}
       </q-badge>
 
       <q-icon name="colorize" class="cursor-pointer" size="20px">
         <q-popup-proxy transition-show="scale" transition-hide="scale">
-          <q-color
-            :default-value="colour1"
-            @update:model-value="(val) => changeColour1(val)"
-          />
+          <q-color :default-value="colour1" @update:model-value="(val) => changeColour1(val)" />
         </q-popup-proxy>
       </q-icon>
       <br />
 
       <label for="Colour2">Colour 2 for gradient: </label>
-      <q-badge
-        outline
-        :style="{
-          background: colour2 + '!important',
-          color: invertHex(colour2) + '!important',
-          'font-family': 'monospace',
-          'font-this.canvasSize': '20px',
-        }"
-        class="q-mb-sm"
-        q
-      >
+      <q-badge outline :style="{
+        background: colour2 + '!important',
+        color: invertHex(colour2) + '!important',
+        'font-family': 'monospace',
+        'font-this.canvasSize': '20px',
+      }" class="q-mb-sm" q>
         {{ colour2 }}
       </q-badge>
       <q-icon name="colorize" class="cursor-pointer" size="20px">
         <q-popup-proxy transition-show="scale" transition-hide="scale">
-          <q-color
-            :default-value="colour2"
-            @update:model-value="(val) => changeColour2(val)"
-          />
+          <q-color :default-value="colour2" @update:model-value="(val) => changeColour2(val)" />
         </q-popup-proxy>
       </q-icon>
       <br />
 
       <span class="text-h6" style="margin: 0">Size:</span>
-      <q-slider
-        v-model="canvasSize"
-        color="blue-grey-7"
-        markers
-        :marker-labels="imgSizeMarkerLabel"
-        :min="100"
-        :max="400"
-        :step="50"
-        @change="changeSize()"
-      />
+      <q-slider v-model="canvasSize" color="blue-grey-7" markers :marker-labels="imgSizeMarkerLabel" :min="100" :max="400"
+        :step="50" @change="changeSize()" />
 
       <span class="text-h6" style="margin: 0">Emoji Size:</span>
-      <q-slider
-        v-model="emojiScale"
-        color="blue-grey-7"
-        markers
-        marker-labels
-        :min="0.5"
-        :max="2"
-        :step="0.5"
-        @change="changeSize()"
-      />
+      <q-slider v-model="emojiScale" color="blue-grey-7" markers marker-labels :min="0.5" :max="2" :step="0.5"
+        @change="changeSize()" />
 
       <br />
       <br />
 
-      <q-btn-toggle
-        v-model="emojiCurrentlySelected"
-        toggle-color="blue-grey-6"
-        :options="[
-          { label: 'Primary', value: '1' },
-          { label: 'Secondary', value: '2' },
-        ]"
-      />
+      <q-btn-toggle v-model="emojiCurrentlySelected" toggle-color="blue-grey-6" :options="[
+        { label: 'Primary', value: '1' },
+        { label: 'Secondary', value: '2' },
+      ]" />
 
-      <q-btn
-        class="reload-button"
-        padding="xs"
-        color="deep-orange-9"
-        icon="replay"
-        @click="reset()"
-      />
+      <q-btn class="reload-button" padding="xs" color="deep-orange-9" icon="replay" @click="reset()" />
       <br />
       <br />
-      <q-btn-toggle
-        v-model="smolEmojiPlace"
-        toggle-color="grey-6"
-        :options="[
-          { value: 'ne', slot: 'one' },
-          { value: 'nw', slot: 'two' },
-          { value: 'se', slot: 'three' },
-          { value: 'sw', slot: 'four' },
-        ]"
-        class="btngroup"
-        @click="updatePlace()"
-      >
+      <q-btn-toggle v-model="smolEmojiPlace" toggle-color="grey-6" :options="[
+        { value: 'ne', slot: 'one' },
+        { value: 'nw', slot: 'two' },
+        { value: 'se', slot: 'three' },
+        { value: 'sw', slot: 'four' },
+      ]" class="btngroup" @click="updatePlace()">
         <template v-slot:one>
           <div>
             <q-icon name="north_east" />
@@ -151,34 +97,15 @@
       <br />
 
       <div style="justify-content: center">
-        <canvas
-          id="myCanvas"
-          width="300"
-          height="300"
-          name="Canvas with no emoji"
-          style="border: 1px solid #d3d3d3"
-        >
-          Your browser does not support the HTML canvas tag.</canvas
-        >
-        <canvas
-          id="myCanvas2"
-          width="300"
-          height="300"
-          name="Canvas with no emoji"
-          style="border: 1px solid #d3d3d3; display: none"
-        >
-          Your browser does not support the HTML canvas tag.</canvas
-        >
+        <canvas id="myCanvas" width="300" height="300" name="Canvas with no emoji" style="border: 1px solid #d3d3d3">
+          Your browser does not support the HTML canvas tag.</canvas>
+        <canvas id="myCanvas2" width="300" height="300" name="Canvas with no emoji"
+          style="border: 1px solid #d3d3d3; display: none">
+          Your browser does not support the HTML canvas tag.</canvas>
       </div>
 
       <br />
-      <q-btn
-        :loading="downloadProgress"
-        @click="downloadCanvas()"
-        color="white"
-        text-color="black"
-        label="Download"
-      >
+      <q-btn :loading="downloadProgress" @click="downloadCanvas()" color="white" text-color="black" label="Download">
         <template v-slot:loading>
           <q-spinner-gears />
         </template>
@@ -190,9 +117,7 @@
     <div class="footer">
       Uses
       <a href="https://twemoji.twitter.com/" target="_blank">Twitter Emoji</a> |
-      <a href="https://github.com/Hysterelius/EmojiCP-Vite" target="_blank"
-        >GitHub</a
-      >
+      <a href="https://github.com/Hysterelius/EmojiCP-Vite" target="_blank">GitHub</a>
     </div>
   </footer>
 </template>
@@ -254,7 +179,18 @@ export default {
   },
 
   created() {
-    document.title = "Emoji CP";
+    if (localStorage.getItem('colour1')) {
+      this.colour1 = localStorage.getItem('colour1');
+    }
+    if (localStorage.getItem('colour2')) {
+      this.colour2 = localStorage.getItem('colour2');
+    }
+    if (localStorage.getItem('canvasSize')) {
+      this.canvasSize = localStorage.getItem('canvasSize');
+    }
+    if (localStorage.getItem('emojiScale')) {
+      this.emojiScale = localStorage.getItem('emojiScale');
+    }
   },
 
   mounted() {
@@ -428,7 +364,7 @@ export default {
 
       img.onload = () => {
         // this.prepareCanvas(false, canvas);
-        ctx.drawImage(img, offsetx, offsety);
+        ctx.drawImage(img, Math.floor(offsetx), Math.floor(offsety));
         domURL.revokeObjectURL(url);
         callback();
       };
@@ -458,7 +394,7 @@ export default {
           this.drawInlineSVG(
             ctx,
             this.editSVG(currentEmoji[0], canvas),
-            function () {},
+            function () { },
             (canvas.width - (canvas.width / 3) * this.emojiScale) / 2
           );
         }
@@ -467,7 +403,7 @@ export default {
           this.drawInlineSVG(
             ctx,
             this.editSVG(smolCurrentEmoji[0], canvas, 0.5),
-            function () {},
+            function () { },
             this.smolCalcPos(0, canvas),
             this.smolCalcPos(1, canvas)
           );
@@ -490,18 +426,27 @@ export default {
 
     changeColour1(value) {
       this.colour1 = value;
+      localStorage.setItem('colour1', value);
       this.doBoth();
     },
 
     changeColour2(value) {
       this.colour2 = value;
+      localStorage.setItem('colour2', value);
       this.doBoth();
     },
 
     changeSize() {
       let c = document.getElementById("myCanvas2");
+      if (localStorage.getItem('canvasSize') != this.canvasSize) {
+        localStorage.setItem('canvasSize', this.canvasSize);
+      }
+      if (localStorage.getItem('emojiScale') != this.emojiScale) {
+        localStorage.setItem('emojiScale', this.emojiScale);
+      }
       c.setAttribute("width", this.canvasSize * 3);
       c.setAttribute("height", this.canvasSize * 3);
+
       this.doBoth();
     },
 
@@ -525,8 +470,8 @@ export default {
       return (
         (canvas.width - (canvas.width / 3) * this.emojiScale) / 2 +
         emojiPlace[this.smolEmojiPlace][xory] *
-          (canvas.width / 3) *
-          this.emojiScale
+        (canvas.width / 3) *
+        this.emojiScale
       );
     },
   },
@@ -551,7 +496,7 @@ export default {
   align-items: center;
 }
 
-.row > h3 {
+.row>h3 {
   margin: auto;
   text-align: center;
   padding: 0 10px;
@@ -579,7 +524,7 @@ export default {
   }
 }
 
-.main > * {
+.main>* {
   margin: 10px;
 }
 
