@@ -10,20 +10,21 @@ jobs:
     steps:
       # Check-out repository under $GITHUB_WORKSPACE
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
       # Build static pages w/ Vite
-      - name: Setup Node ⚙️
-        uses: actions/setup-node@v3
+      - name: Setup pnpm ⚙️
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: Install dependencies 🧱
-        run: npm install
+        run: pnpm install
       - name: Build 🏗️
-        run: npm run build --if-present
+        run: pnpm run build --if-present
       - name: Deploy 🚀
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: emojicp-vite
-          directory: dist
+          command: pages deploy dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
