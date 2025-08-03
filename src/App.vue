@@ -166,8 +166,8 @@ const imgSizeMarkerLabel = {
   400: "1200px",
 };
 
-const emojiIndexRef = ref(emojiIndex);
-const emojisOutput = ref("");
+// const emojiIndexRef = ref(emojiIndex);
+// const emojisOutput = ref("");
 const colour1 = ref("#858e96");
 const colour2 = ref("#60696b");
 const baseStr = ref("https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/");
@@ -324,7 +324,7 @@ function editSVG(svg, canvas, scaleFactor = 1) {
 
   let newSVG =
     svg.slice(0, pos) +
-    `width=\"${scale}\" height=\"${scale}\" ` +
+    `width="${scale}" height="${scale}" ` +
     svg.slice(pos);
   return newSVG;
 }

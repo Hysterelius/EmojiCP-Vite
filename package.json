@@ -16,6 +16,6 @@
   "devDependencies": {
     "@quasar/vite-plugin": "^1.10.0",
     "@vitejs/plugin-vue": "^6.0.1",
-    "vite": "^7.0.6"
+    "vite": "npm:rolldown-vite@latest"
   }
 }

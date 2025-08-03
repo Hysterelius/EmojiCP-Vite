@@ -21,8 +21,8 @@ Over the original [Emoji Contact](https://github.com/Hysterelius/EmojiCP), there
 - Much faster 🔥
 - Looks better 😎
 - Easier to interact with 🤳
-- Lastest emoji 🤩
+- Latest emoji 🤩
 
 Uses [Twitter Emojis](https://github.com/twitter/twemoji).
 
-[MIT](/LICENSE) **Copyright** [Hystersis](https://github.com/Hystersis)
+[MIT](/LICENSE) **Copyright** [Hysterelius](https://github.com/Hysterelius)
