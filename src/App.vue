@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h3>Welcome to the Emoji Contact photo maker</h3>
+    <h3>Emoji Contact Maker</h3>
   </div>
   <br />
 
